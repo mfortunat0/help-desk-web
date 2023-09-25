@@ -1,8 +1,10 @@
 const inputElement = document.querySelector('#customFile');
 const inputLabel = document.querySelector('#customFileLabel');
-const modal = document.querySelector('.modal');
+const modalChamados = document.querySelector('#modalChamados');
+const modalDescricao = document.querySelector('#modalDescricao');
 const overlay = document.querySelector('.overlay');
 const buttonModal = document.querySelector('#buttonModal');
+const trs = document.querySelectorAll('tr');
 
 inputElement.addEventListener('change', () => {
   if (inputElement.files.length > 0) {
@@ -15,11 +17,21 @@ inputElement.addEventListener('change', () => {
 });
 
 overlay.addEventListener('click', () => {
-  modal.style.display = 'none';
+  modalChamados.style.display = 'none';
+  modalDescricao.style.display = 'none';
   overlay.style.display = 'none';
 });
 
 buttonModal.addEventListener('click', () => {
-  modal.style.display = 'block';
+  modalChamados.style.display = 'block';
   overlay.style.display = 'block';
+});
+
+trs.forEach((tr) => {
+  tr.addEventListener('click', () => {
+    if (tr.id !== '') {
+      modalDescricao.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+  });
 });

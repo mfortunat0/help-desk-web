@@ -36,7 +36,7 @@ nav > div {
   color: white;
 }
 
-svg {
+nav > div > svg {
   fill: white;
 }
 
@@ -64,14 +64,11 @@ th {
   background-color: var(--blue);
   text-align: left;
   padding: 12px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
   color: white;
 }
 
 td {
   padding: 10px;
-  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
 
@@ -79,8 +76,14 @@ tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
 
-td:hover {
-  background-color: #e0e0e0;
+tr {
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+tr:hover {
+  background-color: var(--blue);
+  color: #fff;
 }
 
 .buttonContainer {
@@ -151,25 +154,26 @@ td:hover {
   z-index: 0;
 }
 
-.modalContent {
+.modalContentChamados,
+.modalContentDescricao {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 24px;
 }
 
-.modalContent > div {
+.modalContentChamados > div {
   display: flex;
   justify-content: end;
   gap: 8px;
 }
 
-.modalContent > h2 {
+.modalContentChamados > h2 {
   text-align: center;
 }
 
-.modalContent > select,
-.modalContent > textarea {
+.modalContentChamados > select,
+.modalContentChamados > textarea {
   border: 1px solid #aaa;
   border-radius: 4px;
   outline: none;
@@ -177,7 +181,7 @@ td:hover {
   padding: 2px;
 }
 
-.modalContent > textarea {
+.modalContentChamados > textarea {
 }
 
 .custom-file-input {
@@ -197,4 +201,22 @@ td:hover {
 
 .custom-file-label-confirmed {
   background-color: var(--green);
+}
+
+.modalContentDescricao {
+  gap: 16px;
+}
+
+.modalContentDescricao > div {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modalContentDescricao > div > svg {
+  fill: var(--green);
+}
+
+.modalContentDescricao > p {
+  font-size: 12px;
 }
